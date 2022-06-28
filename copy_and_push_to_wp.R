@@ -51,17 +51,18 @@ icesTAF::rmdir(to, recursive = T)
 ## Pull then push -wp repo, and squash all but most recent commit  ----
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-system("git checkout --orphan newBranch")
+# system("git checkout --orphan newBranch")
+# system("git add -A")  # Add all files and commit them
+# # system(paste0('git commit -m "', Sys.time(), '"'))
+# git2r::commit(here(), message = paste0(Sys.time()))
+# system("git branch -D main")  # Deletes the master branch
+# system("git branch -m main")  # Rename the current branch to master
+# system("git push -f origin main")  # Force push master branch to github
+# system("git gc --aggressive --prune=all")     # remove the old files
+
 system("git add -A")  # Add all files and commit them
-# system(paste0('git commit -m "', Sys.time(), '"'))
 git2r::commit(here(), message = paste0(Sys.time()))
-system("git branch -D main")  # Deletes the master branch
-system("git branch -m main")  # Rename the current branch to master
 system("git push -f origin main")  # Force push master branch to github
-system("git gc --aggressive --prune=all")     # remove the old files
-
-
-
 # repo <- here()
 # fs::file_delete(here(".git"))
 # system('git init -b main')
