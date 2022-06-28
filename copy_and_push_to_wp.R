@@ -46,4 +46,13 @@ icesTAF::rmdir(to, recursive = T)
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 repo <- here()
 fs::file_delete(here(".git"))
+usethis::use_git()
+
 init(repo, branch = 'main')
+add(repo, path = all_repo_files)
+commit(repo, message = as.character(Sys.time()))
+usethis::use_git()
+
+git2r::
+push(repo, "master", "refs/heads/main", credentials = cred_token(token = 'GITLAB_PAT'))
+
