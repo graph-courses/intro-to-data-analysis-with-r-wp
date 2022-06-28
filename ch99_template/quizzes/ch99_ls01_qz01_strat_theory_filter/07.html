@@ -1,0 +1,64 @@
+
+
+<div id="prologue" class="section level2">
+<h2>Prologue</h2>
+<p>This quiz tests your understanding of the <code>filter()</code> function in the <strong>dplyr</strong> package. Good luck!</p>
+<p>For multiple choice questions, please enter the correct letter option into the provided box.</p>
+<hr />
+</div>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<p>Which of the following is a <strong>misinterpretation</strong> of a <strong>filter</strong> statement on <code>df</code>? Answer: {a}</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><code>df %&gt;% filter(deaths &lt;  4)</code> : Drop row(s) where <code>deaths</code> is below 4</p></li>
+<li><p><code>df %&gt;% filter(!deaths &gt;  4)</code> : Drop row(s) where <code>deaths</code> is above 4</p></li>
+<li><p><code>df %&gt;% filter(deaths ==  4)</code> : Keep row(s) where <code>deaths</code> is equal to 4</p></li>
+</ol>
+<hr />
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<!--# Objective: Filter on NA-containing columns. -->
+<p><code>df</code> is an excerpt of a edataset from an H7N9 outbreak in China.</p>
+<pre class="r"><code>df &lt;- outbreaks::fluH7N9_china_2013[c(1,2,3,74, 75), c(6:8)]
+df</code></pre>
+<pre><code>##    gender age province
+## 1       m  87 Shanghai
+## 2       m  27 Shanghai
+## 3       f  35    Anhui
+## 74   &lt;NA&gt;   ? Shanghai
+## 75   &lt;NA&gt;   ? Shanghai</code></pre>
+<p>To <strong>drop</strong> the single female patient, which of the following <strong>filter</strong> statements is <strong>correct</strong> Answer: {a}</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><code>df %&gt;% filter(gender ==  "m" &amp; is.na(gender))</code></p></li>
+<li><p><code>df %&gt;% filter(gender !=  "f")</code></p></li>
+<li><p><code>df %&gt;% filter(gender ==  "m")</code></p></li>
+</ol>
+<hr />
+</div>
+<div id="question-3" class="section level2">
+<h2>Question 3</h2>
+<!--# Objective: Use the `%in%` operator properly -->
+<pre><code>## # A tibble: 6 × 2
+##      id state 
+##   &lt;dbl&gt; &lt;chr&gt; 
+## 1     1 Kano  
+## 2     2 Lagos 
+## 3     3 Bauchi
+## 4     4 Kano  
+## 5     5 FCT   
+## 6     6 &lt;NA&gt;</code></pre>
+<p>From the dataset shown, you would like to keep rows where <code>state</code> is either “Lagos” or “Kano”. Which of the following uses <strong>correct syntax</strong> for this. Answer: {b}</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><code>df %&gt;% filter(state %in% c("Lagos" "Kano"))</code></p></li>
+<li><p><code>df %&gt;% filter(state %in% c("Lagos", "Kano"))</code></p></li>
+<li><p><code>df %&gt;% filter(state == c("Lagos", "Kano"))</code></p></li>
+</ol>
+<hr />
+</div>
+<div id="question-4" class="section level2">
+<h2>Question 4</h2>
+<p>Answer T for TRUE or F for FALSE.</p>
+<p>In R, <code>=</code> can be used as an assignment operator, while <code>==</code> is used for testing equality. Answer: {[T][TRUE]}</p>
+<hr />
+</div>

@@ -1,0 +1,76 @@
+
+
+<p>Here you will analyze a dataset sample of confirmed and suspected cases of Ebola hemorrhagic fever in Sierra Leone, in May and June of 2014.</p>
+<p>Click <a href="https://drive.google.com/file/d/1C05-3NLq9PM1-GMMaDoat3SRb_lXV2uo/view?usp=drivesdk" target="_blank"><strong>here</strong></a> to view and download the data. Or import it directly into R with the code below:</p>
+<pre><code>if(!require(pacman)) install.packages(&quot;pacman&quot;)   
+pacman::p_load(rio)   
+ebola_dat_raw &lt;- import(&quot;https://docs.google.com/uc?id=1C05-3NLq9PM1-GMMaDoat3SRb_lXV2uo&amp;export=download&quot;,
+ format = &quot;csv&quot;,
+ setclass = &quot;tibble&quot;)  </code></pre>
+<p>Here are the top 6 rows of <code>ebola_dat_raw</code> after import:</p>
+<pre class="r"><code>head(ebola_dat_raw)</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##      id   age sex   status    date_of_onset date_of_sample district
+##   &lt;int&gt; &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;     &lt;date&gt;        &lt;date&gt;         &lt;fct&gt;   
+## 1   167    55 M     confirmed 2014-06-15    2014-06-21     Kenema  
+## 2   129    41 M     confirmed 2014-06-13    2014-06-18     Kailahun
+## 3   270    12 F     confirmed 2014-06-28    2014-07-03     Kailahun
+## 4   187    NA F     confirmed 2014-06-19    2014-06-24     Kailahun
+## 5    85    20 M     confirmed 2014-06-08    2014-06-24     Kailahun
+## 6   277    30 F     confirmed 2014-06-29    2014-07-01     Kenema</code></pre>
+<hr />
+<div id="part-a" class="section level1">
+<h1>Part A</h1>
+<p>For some rows in the dataset, the “sex” variable is missing. We would like to drop such rows. Additionally, we are not interested in analyzing any cases from the Bo district.</p>
+<p><strong>1. Complete the code to drop everyone whose sex is missing or who is from the Bo district</strong></p>
+<pre class="r"><code>ebola_dat &lt;- 
+  ebola_dat_raw %&gt;% 
+  filter(!( {is.na}(sex) | {district} == &quot;Bo&quot; ))</code></pre>
+<details>
+<summary>Hint</summary>
+Recall that `filter(!( CONDITIONS_HERE ))` can be read as "DROP every row matching any of the conditions surrounded by `!()`
+</details>
+<p><strong>2. How many rows remain in the filtered dataset? {196}</strong></p>
+<hr />
+<p><strong>3. How many rows remain if you, instead, drop all children (&lt; 18) and anyone with a missing age from <code>ebola_dat_raw</code>. {150}</strong></p>
+<hr />
+</div>
+<div id="part-b" class="section level1">
+<h1>Part B</h1>
+<p>With the filtered dataset, <code>ebola_dat</code>, from question A1/A2, we would like to create a frequency table of cases by <code>district</code>.</p>
+<p><strong>1. Complete the missing code that generates the frequency table whose “head” is shown. Then fill in the missing values in the output.</strong></p>
+<pre class="r"><code>sex_district_count &lt;- 
+  ebola_dat %&gt;%
+  {count}({district})
+sex_district_count</code></pre>
+<pre><code>## # A tibble: 5 × 2
+##   district      n    
+##   &lt;chr&gt;         &lt;chr&gt;
+## 1 Kailahun      146  
+## 2 Kenema        {41} 
+## 3 Kono          2    
+## 4 Port Loko     {2}  
+## 5 Western Urban 5</code></pre>
+<hr />
+<p>Next, use a similar function to generate a frequency table of cases by <code>status</code> and <code>sex</code> for the <code>ebola_dat</code> data frame.</p>
+<p><strong>2. Based on this, how many suspected cases are there among women?</strong> {12}</p>
+<p><strong>3. And how many confirmed cases are there among men?</strong> {69}</p>
+<hr />
+</div>
+<div id="part-c" class="section level1">
+<h1>Part C</h1>
+<p>From B1, we notice that the largest number of cases are in Kailahun. We now want to plot the case counts over time in this district.</p>
+<p><strong>1. Complete the code that generates the plot shown.</strong></p>
+<pre class="r"><code>ebola_dat %&gt;% 
+  filter(district == &quot;Kailahun&quot;) %&gt;% 
+  ggplot(aes({[x=date_of_onset][date_of_onset]})) +
+  geom_bar() + 
+  scale_x_date(breaks = scales::pretty_breaks(n = 60)) + 
+  {theme}(axis.text.x = element_text(angle= 90, vjust = 0.5))</code></pre>
+<p><img src="https://drive.google.com/uc?export=view&id=1M4uVhdeCT0meiMskIjIvxvMlAVA80UFw" width="672" /></p>
+<hr />
+<p><strong>2. Now create a similar case-count plot for just <em>children</em> (&lt; 18) from <em>Kailahun</em>.</strong></p>
+<p><strong>Which of the figures below represents this case-count plot for children from Kailahun? Letter answer : {a}</strong></p>
+<p><img src="https://drive.google.com/uc?export=view&id=1kAib2jMI5lqPAajUc3gFkkE6idx2OVxq" width="672" /></p>
+<p><strong>3. In June, what was the longest number of days over which no cases were reported in Kailahun children? {[five][5]} days</strong></p>
+</div>
