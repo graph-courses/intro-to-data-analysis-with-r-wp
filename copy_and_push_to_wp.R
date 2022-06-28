@@ -1,21 +1,23 @@
 # Copy staging repo to student repo ----
 ## GRAPH Courses team
-## 2021-06-27
+## 2022-06-27
 
 #' Copy HTML files from staging repo then push to GitLab. GitLab is mirrored on GitHub. 
 #' GitHub deploys HTML files with GitHub pages
-#' These deployed files are then embedded on our WordPress page
+#' These deployed files are then embedded on our WordPress page.
+#' The script is still a bit of a mess, (as at 2022-06-27) as I am still going down some rabbitholes to try to minimize repo size
 
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Load packages and functions ----
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if (!require(pacman)) install.packages("pacman")
 pacman::p_load(here, fs, cli, git2r, icesTAF, tidyverse)
+
+blue_print <- function(x) cat(cli::bg_blue(cli::col_white(cli::style_bold(x))))
  
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ##  Force pull ----
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 system('git pull origin main')
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,10 +30,36 @@ to   <- here()
 ## Copy  ----
 ## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # List dirs to be copied
-top_level_dirs_to_copy <- dir_ls(from, regexp = "ch\\d\\d_")
+top_level_dirs_to_copy <- dir_ls(from, regexp = "ch\\d\\d_|global")
 file.copy(from = top_level_dirs_to_copy,
           to = to,
           recursive = TRUE)
+
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Re-render if necessary  ----
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Filter files for rendering
+rmds_to_render <- 
+  fs::dir_ls(to, 
+             regexp = "ch\\d\\d_ls\\d\\d_(.*?)",
+             recurse = T) %>%
+  as_tibble() %>% 
+  filter(str_ends(value, "Rmd")) %>% 
+  filter(str_detect(value, "/lessons/")) %>% 
+  filter(!str_detect(str_to_lower(value), "ch99|ls99|/old/|ch05")) %>% 
+  filter(!str_detect(str_to_lower(value), "-copy|-paste")) %>% 
+  filter(!str_detect(str_to_lower(value), "/bookdown/")) %>% 
+  dplyr::pull(1)
+
+# Errors knitting 6, 7, 11, 13
+
+# batched re-rendering in case of errors
+for (rmd in rmds_to_render[14:length(rmds_to_render)]) {
+  blue_print(paste0("Rendering: \n", rmd, 
+                    "\n(", which(rmd == rmds_to_render), " of ", length(rmds_to_render), ")"
+  ))
+  rmarkdown::render(rmd)
+}
 
 # Now delete non HTML files (there is smarter way to do this [we should be able to copy JUST the html files], but I leave like this for now)
 all_repo_files <- dir_ls(to, recurse = T, all = T)

@@ -1,0 +1,701 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Button with link</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for link_button"><tr><td>link_button</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Button with link</h2>
+
+<h3>Description</h3>
+
+<p>Button with link
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+link_button(link, label = "Download data")
+</pre>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Source script very quietly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for mute"><tr><td>mute</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Source script very quietly</h2>
+
+<h3>Description</h3>
+
+<p>Source script very quietly
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mute(x)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>script to be sourced</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>nothing
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Markdown to HTML table</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for md_to_html_table"><tr><td>md_to_html_table</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Markdown to HTML table</h2>
+
+<h3>Description</h3>
+
+<p>Convert a markdown-formatted table to an HTML one.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+md_to_html_table(table_char)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>table</code></td>
+<td>
+<p>character value containing the table</p>
+</td></tr>
+<tr valign="top"><td><code>body</code></td>
+<td>
+<p>Body</p>
+</td></tr>
+</table>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Process TGC quizzes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for process_quiz"><tr><td>process_quiz</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Process TGC quizzes</h2>
+
+<h3>Description</h3>
+
+<p>Will document this better in due time. 
+But very briefly:
+For theory quiz types, this function first calls 'reshuffle_stratified_theory_quiz()' or 'reshuffle_simple_theory_quiz()' to create unique rmd copies
+Then, for all quiz types, the rmds are knitted within a loop.
+Finally the output HTML files are stuffed into an Excel spreadsheet with 'quiz_html_to_tab'
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+process_quiz(
+  quiz_type = quiz_type,
+  quiz_folder = quiz_folder,
+  quiz_title = quiz_title,
+  course_abbrev = course_abbrev,
+  n_quizzes = n_quizzes,
+  questions_per_quiz = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>quiz_type</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>quiz_folder</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>quiz_title</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>course_abbrev</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>n_quizzes</code></td>
+<td>
+</td></tr>
+</table>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Print image to R graphic device.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for print_image"><tr><td>print_image</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Print image to R graphic device.</h2>
+
+<h3>Description</h3>
+
+<p>Sometimes more wieldy than 'knitr::include_graphics'.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+print_image(img_path)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>img_path</code></td>
+<td>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>nothing
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Read seeded HTML quiz outputs into data frame for eventual...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for quiz_html_to_tab"><tr><td>quiz_html_to_tab</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Read seeded HTML quiz outputs into data frame for eventual upload</h2>
+
+<h3>Description</h3>
+
+<p>This function was created to work with this plugin: https://wooninjas.com/downloads/learndash-quiz-import-export/
+Since the plugin uses Excel files, the HTML quiz file has to be under 25KB (to fit into an Excel cell)
+Hence images and data cannot be encoded within the file. 
+You would need to use the gdrive_upload functions instead to upload data.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+quiz_html_to_tab(
+  num_labels,
+  quiz_folder,
+  quiz_title,
+  quiz_name = basename(quiz_folder)
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>quiz_title</code></td>
+<td>
+<p>User-facing title for quiz. E.g. &quot;4.2.2 Data quiz: Ebola in Sierra Leone&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>seeds</code></td>
+<td>
+<p>Seeds iterated over to create quiz resamplings</p>
+</td></tr>
+<tr valign="top"><td><code>quiz_path</code></td>
+<td>
+<p>Absolute path to the quiz</p>
+</td></tr>
+<tr valign="top"><td><code>course_id</code></td>
+<td>
+<p>Normally a 5-digit numeric ID obtained from the table on the LearnDash LMS &gt; Courses page</p>
+</td></tr>
+<tr valign="top"><td><code>lesson_id</code></td>
+<td>
+<p>Normally a 5-digit numeric ID obtained from the table on the LearnDash LMS &gt; Lessons page</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Data frame
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# See template chapter for example
+</pre>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Internal. Parse quiz into separate data frames</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for rmd_to_df_list"><tr><td>rmd_to_df_list</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Internal. Parse quiz into separate data frames</h2>
+
+<h3>Description</h3>
+
+<p>Internal. Parse quiz into separate data frames
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rmd_to_df_list(rmd_file)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rmd_file</code></td>
+<td>
+<p>Path to Rmd rile to be parsed</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>List of data frames, with each data frame contaiting an element of the rmd quiz
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Pretty print data frames with reactable</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for reactable_print"><tr><td>reactable_print</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Pretty print data frames  with reactable</h2>
+
+<h3>Description</h3>
+
+<p>Pretty print data frames  with reactable
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+reactable_print(df, nrows)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>nrows</code></td>
+<td>
+</td></tr>
+</table>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Print the GRAPH Courses license</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for tgc_license"><tr><td>tgc_license</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Print the GRAPH Courses license</h2>
+
+<h3>Description</h3>
+
+<p>Print the GRAPH Courses license
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tgc_license()
+</pre>
+
+
+<h3>Value</h3>
+
+<p>HTML text and license image
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Print list of contributors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for tgc_contributors_list"><tr><td>tgc_contributors_list</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Print list of contributors</h2>
+
+<h3>Description</h3>
+
+<p>Print list of contributors
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+tgc_contributors_list(
+  ids,
+  csv_path = here::here("global/contributors/tgc_contributors.csv")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>ids</code></td>
+<td>
+<p>IDs of contributors</p>
+</td></tr>
+<tr valign="top"><td><code>csv_path</code></td>
+<td>
+<p>Path to source csv</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>HTML output for contributors
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Collapsible</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for collapsible"><tr><td>collapsible</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Collapsible</h2>
+
+<h3>Description</h3>
+
+<p>Collapsible
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+collapsible(body = "Hint here", summary = "Hint")
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>body</code></td>
+<td>
+<p>Body</p>
+</td></tr>
+<tr valign="top"><td><code>summary</code></td>
+<td>
+<p>Label</p>
+</td></tr>
+</table>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Export and upload object, and provide students with download...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for download_or_read"><tr><td>download_or_read</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Export and upload object, and provide students with download button or import code to read it in</h2>
+
+<h3>Description</h3>
+
+<p>Export and upload object, and provide students with download button or import code to read it in
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+download_or_read(
+  x,
+  filename = "quiz-data",
+  format = "csv",
+  which = "both",
+  identifier = uuid::UUIDgenerate()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>object to be exported</p>
+</td></tr>
+<tr valign="top"><td><code>filename</code></td>
+<td>
+<p>name of the file</p>
+</td></tr>
+<tr valign="top"><td><code>format</code></td>
+<td>
+</td></tr>
+<tr valign="top"><td><code>identifier</code></td>
+<td>
+<p>string to suffix the filename with, to permit uniqueness (and avoid overwriting) on our GDrive. Set to NULL to overwrite.</p>
+</td></tr>
+</table>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Document functions in an R Script</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for documenter"><tr><td>documenter</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Document functions in an R Script</h2>
+
+<h3>Description</h3>
+
+<p>Document functions in an R Script
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+documenter(source_file)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>source_file</code></td>
+<td>
+<p>Path to script</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>nothing
+</p>
+
+
+<h3>Note</h3>
+
+<p>This is now deprecated in favor of the more powerful document::document
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Upload a file to the GRAPH Courses Google Drive</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for gdrive_upload"><tr><td>gdrive_upload</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Upload a file to the GRAPH Courses Google Drive</h2>
+
+<h3>Description</h3>
+
+<p>By default, each time this function is used, it will upload a *new* copy of the object in question, not overwrite the previous copies. 
+This is facilitated by the 'uuid::UUIDgenerate()' function. If you wish to overwrite old objects, use 'identifier = &quot;SOME_FIXED_ID&quot;'. 
+Your files will then be uploaded as &quot;CHUNK_NAME-SOME_FIXED_ID&quot;. Or you could use 'identifier = NULL'.
+Be careful with this though. If there is some object already on the Drive called e.g. &quot;mydat&quot;, 
+and two years later, you use this function with 'identified = &quot;mydat&quot;', you will overwrite that old dataset, and may break some quiz that references it.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gdrive_upload(
+  file,
+  obj_type = "image",
+  gdrive_dir = "quizzes/images/",
+  identifier = uuid::UUIDgenerate(),
+  role = "reader",
+  type = "anyone"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>file</code></td>
+<td>
+<p>Full path to file to be uploaded</p>
+</td></tr>
+<tr valign="top"><td><code>gdrive_dir</code></td>
+<td>
+<p>Directory on our Google Drive to put the image</p>
+</td></tr>
+<tr valign="top"><td><code>identifier</code></td>
+<td>
+<p>string to suffix the filename with, to permit uniqueness (and avoid overwriting) on our GDrive. Set to NULL to overwrite.</p>
+</td></tr>
+<tr valign="top"><td><code>role, type</code></td>
+<td>
+<p>See 'googledrive::drive_share'</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Note also that you need to run 'googledrive::drive_auth(email = &quot;YOUR_EMAIL&quot;)' in an interactive session before using this.
+</p>
+<p>This function is also built to be taken in by knitr to automatically upload images generated in a chunk and return the embedding link. 
+To set this up, pass this function to the 'upload.fun' argument of 'knitr$opts_chunk'
+</p>
+
+
+<h3>Value</h3>
+
+<p>A link to the now shared file on Google drive. If file is an image, the embed link is returned.
+</p>
+
+
+</div></body></html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Insert a code chunk containing code for importing a dataset</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+
+<table width="100%" summary="page for gdrive_import_chunk"><tr><td>gdrive_import_chunk</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Insert a code chunk containing code for importing a dataset</h2>
+
+<h3>Description</h3>
+
+<p>Insert a code chunk containing code for importing a dataset
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gdrive_import_chunk(gdrive_link, data_name, format)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gdrive_link</code></td>
+<td>
+<p>Google Drive link (for viewing) returned from the 'gdrive_upload' function</p>
+</td></tr>
+<tr valign="top"><td><code>data_name</code></td>
+<td>
+<p>Character string. The name of the dataset that the student should use</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>Code chunk for Rmd
+</p>
+
+
+<h3>Note</h3>
+
+<p>The chunk where this function is used should have echo = F and results = &quot;asis&quot; as chunk options.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+gdrive_import_chunk("https://drive.google.com/file/d/11QgvNvAjDGXK8KprgxJ-kZp5qRDgUVpt/view?usp=drivesdk", "ebola_dat_raw")
+
+</pre>
+
+
+</div></body></html>
+
