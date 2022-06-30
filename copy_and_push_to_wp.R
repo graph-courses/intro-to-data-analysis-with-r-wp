@@ -54,7 +54,7 @@ rmds_to_render <-
 # Errors knitting 6, 7, 11, 13
 
 # batched re-rendering in case of errors
-for (rmd in rmds_to_render[14:length(rmds_to_render)]) {
+for (rmd in rmds_to_render[14]) {
   blue_print(paste0("Rendering: \n", rmd, 
                     "\n(", which(rmd == rmds_to_render), " of ", length(rmds_to_render), ")"
   ))
